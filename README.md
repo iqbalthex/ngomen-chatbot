@@ -6,6 +6,7 @@ The purpose of this tutorial is to learn about how to make [whatsapp](whatsapp.c
 ### # Software
 - [`XAMPP (Cross-platform Apache, MySQL, PHP and Perl)`](xampp.com) or other GUI Application for PHP & MySQL server
 - [`Notepad++`](notepad-plus-plus.org) or other Text Editor
+- [`ngrok`](ngrok.com) for temporary hosting
 
-Below is the video of this tutorial.<br>
-https://drive.google.com/drive/folders/1Bh2p8fRoyw-A2C8IAETFdPa0JVGOPl3t
+Below is the link to video of this tutorial.<br>
+[https://drive.google.com](https://drive.google.com/drive/folders/1Bh2p8fRoyw-A2C8IAETFdPa0JVGOPl3t)
