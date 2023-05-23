@@ -2,6 +2,8 @@
 
 header('Content-Type: application/json; charset=utf-8');
 
+$koneksi = mysqli_connect('localhost', 'root', '', 'daftar')
+
 $json = file_get_contents('php://input');
 $data = json_decode($json, true);
 $device = $data['device'];
@@ -9,42 +11,13 @@ $sender = $data['sender'];
 $message = $data['message'];
 $name = $data['name'];
 
-if ($message == 'test') {
-  $reply = [
-    'message' => 'working great!',
-  ];
-} elseif ($message == 'image') {
-  $reply = [
-    'message' => 'image message',
-    'url' => 'https://filesamples.com/samples/image/jpg/sample_640%C3%97426.jpg',
-  ];
-} elseif ($message == 'audio') {
-  $reply = [
-    'message' => 'audio message',
-    'url' => 'https://filesamples.com/samples/audio/mp3/sample3.mp3',
-    'filename' => 'music',
-  ];
-} elseif ($message == 'video') {
-  $reply = [
-    'message' => 'video message',
-    'url' => 'https://filesamples.com/samples/video/mp4/sample_640x360.mp4',
-  ];
-} elseif ($message == 'file') {
-  $reply = [
-    'message' => 'file message',
-    'url' => 'https://filesamples.com/samples/document/docx/sample_3.docx',
-    'filename' => 'document',
-  ];
-} else {
-  $reply = [
-    'message' => "Sorry, i don't understand. Pleas use one of the following keyword :
+$result = mysqli_query($conn, "SELECT * FROM tabel_faq WHERE tanya LIKE '%$message%'");
 
-Hello
-Audio
-video
-Image
-File",
-  ];
+if (mysqli_num_rows($result) > 0) {
+  $data = mysqli_fetch_assoc($result);
+  $reply['message'] = "Terima kasih telah menghubungi kami,\n\n$data[jawab]";
+} else {
+  $reply['message'] = 'Maaf, saya tidak mengerti.';
 }
 
 
